@@ -1,0 +1,25 @@
+return {
+  {
+    "neovim/nvim-lspconfig",
+    opts = {
+      servers = {
+        -- 确保这里有 clangd
+        clangd = {
+          cmd = {
+            "clangd",
+            "--background-index",
+            "--clang-tidy",
+            "--header-insertion=iwyu",
+            "--completion-style=detailed",
+            "--function-arg-placeholders",
+            "--fallback-style=llvm",
+            "--query-driver=/usr/bin/arm-none-eabi-gcc",
+          },
+          capabilities = {
+            offsetEncoding = { "utf-16" },
+          },
+        },
+      },
+    },
+  },
+}
